@@ -1,1 +1,1 @@
-A Basic TO-DO WEBAPP
+Develop a basic To-Do web app where users can add daily tasks. The app should display tasks under Pending and Completed sections. Users can add, edit, delete, and mark tasks as complete. Completed tasks move to a separate list. Each task should also show the date and time when it was added or completed.
