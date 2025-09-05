@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>To-Do Web App</title>
+  <link rel="stylesheet" href="todoapp.css" />
+</head>
+<body>
+  <header class="container">
+    <h1>To-Do Web App</h1>
+    <p class="subtitle">Add tasks, mark them complete, edit or delete — with timestamps.</p>
+  </header>
+
+  <main class="container">
+    <!-- Add Task -->
+    <section class="card">
+      <h2>Add a New Task</h2>
+      <form id="task-form" autocomplete="off">
+        <input id="task-input" type="text" placeholder="e.g., Buy groceries" aria-label="Task description" required />
+        <button type="submit" class="btn primary">Add Task</button>
+      </form>
+      <div class="muted tip">Tip: Press Enter to add quickly.</div>
+    </section>
+
+    <!-- Overview -->
+    <section class="grid">
+      <div class="stat">
+        <div class="stat-number" id="count-total">0</div>
+        <div class="stat-label">Total Tasks</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number" id="count-pending">0</div>
+        <div class="stat-label">Pending</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number" id="count-completed">0</div>
+        <div class="stat-label">Completed</div>
+      </div>
+    </section>
+
+    <!-- Pending Tasks -->
+    <section class="card">
+      <div class="section-title">
+        <h2>Pending Tasks</h2>
+        <span class="badge" id="badge-pending">0</span>
+      </div>
+      <ul id="pending-list" class="task-list" aria-live="polite"></ul>
+      <div class="empty" id="empty-pending">No pending tasks — add one above!</div>
+    </section>
+
+    <!-- Completed Tasks -->
+    <section class="card">
+      <div class="section-title">
+        <h2>Completed Tasks</h2>
+        <span class="badge success" id="badge-completed">0</span>
+      </div>
+      <ul id="completed-list" class="task-list" aria-live="polite"></ul>
+      <div class="empty" id="empty-completed">No completed tasks yet.</div>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <button id="clear-all" class="btn danger outline">Clear All</button>
+    <button id="export-json" class="btn">Export JSON</button>
+  </footer>
+
+  <template id="task-item-template">
+    <li class="task">
+      <label class="checkbox">
+        <input type="checkbox" class="toggle" />
+        <span class="checkmark" aria-hidden="true"></span>
+      </label>
+
+      <div class="task-body">
+        <div class="task-top">
+          <span class="task-text"></span>
+          <input class="task-edit" type="text" />
+        </div>
+        <div class="meta">
+          <span class="time-added"></span>
+          <span class="time-completed"></span>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn icon edit" title="Edit" aria-label="Edit task">✎</button>
+        <button class="btn icon save" title="Save" aria-label="Save task">✔</button>
+        <button class="btn icon cancel" title="Cancel" aria-label="Cancel edit">↩</button>
+        <button class="btn icon delete" title="Delete" aria-label="Delete task">🗑</button>
+      </div>
+    </li>
+  </template>
+
+  <script src="todoapp.js"></script>
+</body>
+</html>
